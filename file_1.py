@@ -37,8 +37,6 @@ def positionRoot (root, width_ratio = 1/2, height_ratio = 1/2, x_driftRatio = 0,
 
 	root.geometry(f'{root_width}x{root_height}+{root_x_change}+{root_y_change}')
 
-
-
 tk_root = tkinter.Tk()
 tk_root.title('Main Root')
 positionRoot(tk_root, 1/2, 1/2)
@@ -54,6 +52,7 @@ button.place(relx = 0.5, rely = 0.5, anchor = 'center')
 
 
 def moveButton (event):
+  if event == '<Left>': ...
 
 tk_root.bind('<Left>', moveButton)
 tk_root.bind('<Right>', moveButton)
