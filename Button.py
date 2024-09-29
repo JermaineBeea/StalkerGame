@@ -41,6 +41,10 @@ shift_speed = 0.05
 button = tkinter.Button(tk_root, bg='red', width=button_dimensions, height=button_dimensions)
 button.place(relx=b_x, rely=b_y, anchor='center')
 
+# Button co-ordinates
+b_posX = button.winfo_width()
+b_posY = button.winfo_height()
+
 def moveButton(event):
     global b_x, b_y
     if event.keysym in ('Left', 'a'):

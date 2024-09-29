@@ -41,14 +41,15 @@ n_y = 0
 shift_speed = 0.05
 
 icon = canvas.create_oval(10, 10, 30, 30, fill='red')
-icon.place(relx = n_x, rely = n_y, anchor = 'center')
 
 def on_click(event):
     print("Circular button clicked!")
 
-canvas.tag_bind(icon, "<Button-1>", on_click)
+# canvas.tag_bind(icon, "<Button-1>", on_click)
 
 def moveButton(event):
+    icon_posX = canvas.coords(icon)
+    
     if event.keysym == 'Left':
         canvas.move(icon, -10, 0)
     elif event.keysym == 'Right':
