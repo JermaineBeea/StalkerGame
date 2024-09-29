@@ -1,5 +1,5 @@
 import tkinter
-
+from tkinter import PhotoImage
 
 def positionRoot (root, width_ratio = 1/2, height_ratio = 1/2, x_driftRatio = 0, y_driftRatio = 0):
 	""" 
@@ -43,11 +43,24 @@ tk_root = tkinter.Tk()
 tk_root.title('Main Root')
 positionRoot(tk_root, 1/2, 1/2)
 
+#canvas = tkinter.Canvas(tk_root, )
+#canvas.pack(fill = 'both', expand = True)
+#canvas.create_oval(10, 10, 90, 90, fill = 'red', outline = 'black')
+
+button_dimensions = 1
+button = tkinter.Button(tk_root, bg = 'red', width = button_dimensions, height = button_dimensions)
+button.pack(padx = 0, pady = 0)
+button.place(relx = 0.5, rely = 0.5, anchor = 'center')
+
+
+def moveButton (event):
+
+tk_root.bind('<Left>', moveButton)
+tk_root.bind('<Right>', moveButton)
+tk_root.bind('<Up>', moveButton)
+tk_root.bind('<Down>', moveButton)
 
 tk_root.mainloop()
-
-	
-	
 	
 
 
