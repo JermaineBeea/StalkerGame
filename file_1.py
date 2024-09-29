@@ -46,13 +46,26 @@ positionRoot(tk_root, 1/2, 1/2)
 #canvas.create_oval(10, 10, 90, 90, fill = 'red', outline = 'black')
 
 button_dimensions = 1
+b_x = 0.5; b_y = 0.5
 button = tkinter.Button(tk_root, bg = 'red', width = button_dimensions, height = button_dimensions)
 button.pack(padx = 0, pady = 0)
-button.place(relx = 0.5, rely = 0.5, anchor = 'center')
+button.place(relx = b_x, rely = b_y, anchor = 'center')
 
+
+shift_speed = 0.05
 
 def moveButton (event):
-  if event == '<Left>': ...
+ 	global b_x, b_y
+
+	if event.keysym = 'Left':
+		b_x += - shift_speed
+	if event.keysym = 'Right':
+		b_x += + shift_speed
+	if event.keysym = 'Up':
+		b_y += - shift_speed
+	if event.keysym = 'Down':
+		b_x += + shift_speed
+	
 
 tk_root.bind('<Left>', moveButton)
 tk_root.bind('<Right>', moveButton)
