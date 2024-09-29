@@ -11,7 +11,7 @@ root = tkinter.Tk()
 root.title('My Tkinter App')
 
 # Load the button icon
-button_icon = PhotoImage(file='path_to_button_icon.png')  # Replace with your .png file path
+button_icon = PhotoImage(file=r'C:\Users\Work\OneDrive\Programming\Repositories\Personal_GitHub\StalkerGame\ellie.png')  # Replace with your .png file path
 
 # Create a button with an icon
 button = tkinter.Button(root, image=button_icon, command=lambda: print("Button Clicked"))

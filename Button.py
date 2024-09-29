@@ -1,5 +1,7 @@
 import tkinter
 
+from tkinter import PhotoImage
+
 def positionRoot(root, width_ratio=1/2, height_ratio=1/2, x_driftRatio=0, y_driftRatio=0):
     """ 
     This function modifies the widget width and height relative to screen size
@@ -25,43 +27,41 @@ def positionRoot(root, width_ratio=1/2, height_ratio=1/2, x_driftRatio=0, y_drif
 
     root.geometry(f'{root_width}x{root_height}+{root_x_change}+{root_y_change}')
 
-# Initialize the main Tkinter window
 tk_root = tkinter.Tk()
 tk_root.title('Main Root')
 width_ratio = 1/2
 height_ratio = 1/2
 positionRoot(tk_root, width_ratio, height_ratio)
 
-# Initial button position and dimensions
 button_dimensions = 1
-b_x = 0.5
-b_y = 0.5
+b_x = 0
+b_y = 0
 shift_speed = 0.05
 
-# Create a button
 button = tkinter.Button(tk_root, bg='red', width=button_dimensions, height=button_dimensions)
 button.place(relx=b_x, rely=b_y, anchor='center')
 
-# Function to move the button based on keypress events
 def moveButton(event):
     global b_x, b_y
-    if event.keysym in ('Left', 'W'):
+    if event.keysym in ('Left', 'a'):
         b_x = max(0, b_x - shift_speed)
-    if event.keysym in ('Right', 'D'):
+    if event.keysym in ('Right', 'd'):
         b_x = min(1, b_x + shift_speed)
-    if event.keysym == 'Up':
+    if event.keysym in ('Up', 'w'):
         b_y = max(0, b_y - shift_speed)
-    if event.keysym == 'Down':
+    if event.keysym in ('Down', 's'):
         b_y = min(1, b_y + shift_speed)
 
     # Reposition the button using the updated coordinates
     button.place(relx=b_x, rely=b_y, anchor='center')
 
-# Bind arrow keys to move the button
 tk_root.bind('<Left>', moveButton)
 tk_root.bind('<Right>', moveButton)
 tk_root.bind('<Up>', moveButton)
 tk_root.bind('<Down>', moveButton)
+tk_root.bind('<a>', moveButton)
+tk_root.bind('<d>', moveButton)
+tk_root.bind('<w>', moveButton)
+tk_root.bind('<s>', moveButton)
 
-# Start the Tkinter main event loop
 tk_root.mainloop()

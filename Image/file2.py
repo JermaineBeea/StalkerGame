@@ -10,7 +10,7 @@ root = tkinter.Tk()
 root.title('My Tkinter App')
 
 # Set the window icon (for .png or .gif)
-icon_image = PhotoImage(file='001.jpg')  # Replace with your .png file path
+icon_image = PhotoImage(file=r'C:\Users\Work\OneDrive\Programming\Repositories\Personal_GitHub\StalkerGame\001.png')  # Replace with your .png file path
 root.iconphoto(True, icon_image)
 
 # Run the application
