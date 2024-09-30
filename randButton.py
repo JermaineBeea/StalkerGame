@@ -6,9 +6,13 @@ tk_instance = tkinter.Tk()
 tk_instance.title('Main Root')
 tk_instance.config(bg='black')
 
+count = 0
 def buttonFunc (event = None):
+  global count
+  count += 1
   button.config(bg = 'red')
-
+  if count == 3:
+      button.config(bg = 'green')
 
 x_ratio = 1 / 2
 y_ratio = 1 / 2
@@ -29,14 +33,14 @@ button.place(relx = x_0, rely = y_0, anchor = 'center')
 tk_instance.bind('<Button-3>', buttonFunc)
 
 
-period = 5
-start_time = time.perf_counter()
-while True:
-  end_time = time.perf_counter()
-  time_passed = end_time - start_time
-  if time_passed > period: 
-    button.config(bg = 'white')
-    break
+# period = 5
+# start_time = time.perf_counter()
+# while True:
+#   end_time = time.perf_counter()
+#   time_passed = end_time - start_time
+#   if time_passed > period: 
+#     button.config(bg = 'white')
+#     break
 
   
 tk_instance.mainloop()
